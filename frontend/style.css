@@ -1,0 +1,263 @@
+/* style.css - minimalist CAA-base inspired layout */
+:root{
+  --bg: #26572c;         /* page background used mostly for hero */
+  --page-white: #ffffff;
+  --muted: #777777;
+  --accent: #C8102E;     /* accent - red */
+  --card-bg: #121212;
+  --container-w: 1100px;
+  --gap: 24px;
+  --radius: 8px;
+  --max-content: 1100px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--page-white);
+  background:linear-gradient(180deg,#26572c);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* container centers content */
+.container{
+  width:90%;
+  max-width:var(--max-content);
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  background:transparent;
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:16px 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--gap);
+}
+
+/* Logo */
+.logo{
+  color:var(--page-white);
+  font-weight:700;
+  font-size:20px;
+  text-decoration:none;
+}
+
+/* Navigation */
+.main-nav{display:flex;gap:18px;align-items:center}
+.nav-link{
+  color:rgba(255,255,255,0.85);
+  text-decoration:none;
+  font-weight:500;
+  padding:8px 6px;
+  border-radius:6px;
+}
+.nav-link:hover{
+  color:var(--accent);
+  text-decoration:underline;
+}
+.nav-link.active{
+  color:var(--accent);
+  text-decoration:underline;
+}
+
+/* Hero */
+.hero{
+  padding:120px 0 80px 0;
+  background:linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0,0,0,0.55));
+  text-align:center;
+}
+.hero-inner{max-width:900px;margin:0 auto}
+.hero-title{
+  font-size:36px;
+  margin:0 0 16px 0;
+  line-height:1.15;
+  font-weight:700;
+  color:var(--page-white);
+}
+.hero-lead{
+  color:rgba(255,255,255,0.85);
+  font-size:16px;
+  margin:0 0 20px 0;
+}
+
+/* Buttons */
+.btn-primary{
+  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:600;
+  transition:transform .18s ease,opacity .18s ease;
+}
+.btn-primary:hover{transform:translateY(-3px);opacity:.95}
+
+/* Intro card */
+.intro{padding:20px 0 20px 0}
+.intro-card{background:transparent;color:rgba(255,255,255,0.95);text-align:center;max-width:760px;margin:0 auto;padding:18px;border-radius:8px}
+
+/* About */
+.about-hero{padding:100px 0;background:transparent;text-align:center}
+.about-inner{max-width:850px;margin:0 auto}
+.about-hero h1{font-size:34px;margin-bottom:8px;color:var(--page-white)}
+.subhead{color:#bbbbbb;margin-bottom:22px;font-size:16px}
+.about-content{color:#e7e7e7;text-align:left;background:transparent;padding:0 16px;max-width:700px;margin:0 auto}
+
+/* Contact */
+.contact{padding:80px 0 100px 0;color:var(--page-white)}
+.contact h1{font-size:28px;margin-bottom:8px}
+.contact-lead{color:#cfcfcf;margin-bottom:20px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;max-width:900px;margin-top:12px}
+.contact-info p{color:#dcdcdc;line-height:1.6}
+.contact-form label{display:block;margin-bottom:14px;color:#eaeaea;font-size:14px}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.02);
+  color:var(--page-white);
+  font-size:15px;
+}
+.contact-form textarea{resize:vertical}
+.contact-form .btn-primary{margin-top:8px}
+
+/* Footer */
+.site-footer{
+  background:#F7F7F7; /* light footer background converted to dark mode by overlay below */
+  color:var(--muted);
+  margin-top:80px;
+}
+.footer-inner{max-width:var(--max-content);margin:0 auto;padding:24px 16px;text-align:center}
+.footer-top-sep{height:1px;background:#E0E0E0;margin-bottom:12px;width:100%}
+.footer-text{color:#777777;font-size:14px;margin:0}
+
+/* Make footer appear lighter even on dark page */
+.site-footer { color: #777; }
+.site-footer .footer-top-sep { background: #e0e0e0; }
+
+/* Responsive */
+@media (max-width:900px){
+  .hero-title{font-size:28px}
+  .about-hero{padding:64px 0}
+  .contact-grid{grid-template-columns:1fr}
+  .header-inner{padding:0 6px}
+}
+@media (max-width:420px){
+  .hero{padding:80px 0 48px 0}
+  .hero-title{font-size:22px}
+  .logo{font-size:18px}
+  .main-nav{gap:10px}
+}
+/* =============================================
+   CONTACT PAGE FINAL (per new instructions)
+   ============================================= */
+.contact-section {
+  background-color: #0b0b0b;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  padding: 40px 20px;
+}
+
+/* Contact Us title at extreme top */
+.contact-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 10px; /* nearly top */
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+/* top-left contact info */
+.contact-info {
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  font-size: 17px;
+  color: #cccccc;
+  line-height: 1.8;
+}
+
+/* Form container */
+.contact-form-box {
+  max-width: 500px;
+  margin: 120px auto 0 auto; /* gives space below title */
+  background-color: #141414;
+  padding: 40px 30px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+}
+
+/* Input fields and textarea */
+.contact-form-box input,
+.contact-form-box textarea {
+  width: 100%;
+  margin-bottom: 22px;
+  padding: 14px 22px;
+  border: 1px solid #444;
+  border-radius: 50px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.contact-form-box input::placeholder,
+.contact-form-box textarea::placeholder {
+  color: #bbb;
+  font-weight: 400;
+}
+
+/* Focus effect */
+.contact-form-box input:focus,
+.contact-form-box textarea:focus {
+  border-color: #C8102E;
+}
+
+/* Submit button — smaller, aligned left */
+.contact-form-box button {
+  display: inline-block;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 50px;
+  background-color: #C8102E;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.contact-form-box button:hover {
+  background-color: #a00d25;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.site-footer {
+  background-color: #0b0b0b;
+  color: #777;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+

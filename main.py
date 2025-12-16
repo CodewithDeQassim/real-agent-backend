@@ -6,6 +6,8 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 import models
 import schemas
@@ -22,6 +24,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Mount frontend files (if needed)
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
 # Configure CORS (for connecting with HTML/CSS frontend)
 app.add_middleware(
     CORSMiddleware,
@@ -31,10 +36,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Root endpoint
+# Root endpoint - serve frontend
 @app.get("/")
 def read_root():
-    """Welcome endpoint"""
+    """Serve the main frontend page"""
+    return FileResponse("frontend/index.html")
+
+# API info endpoint
+@app.get("/api")
+def api_info():
+    """API information endpoint"""
     return {
         "message": "Welcome to Real Agent API",
         "version": "1.0.0",
@@ -50,6 +61,17 @@ def read_root():
 def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "service": "Real Agent API"}
+
+# Frontend routes
+@app.get("/about")
+def about_page():
+    """Serve the about page"""
+    return FileResponse("frontend/about.html")
+
+@app.get("/contact")
+def contact_page():
+    """Serve the contact page"""
+    return FileResponse("frontend/contact.html")
 
 # ============ USER CRUD ENDPOINTS ============
 
