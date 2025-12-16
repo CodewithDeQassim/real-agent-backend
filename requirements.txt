@@ -1,0 +1,20 @@
+# Real Agent Backend - FastAPI + SQLAlchemy
+# Python 3.7+
+
+# FastAPI framework
+fastapi==0.104.1
+
+# ASGI server for running FastAPI
+uvicorn[standard]==0.24.0
+
+# SQLAlchemy ORM
+sqlalchemy==2.0.23
+
+# Pydantic for data validation
+pydantic[email]==2.5.0
+
+# Optional: For better development experience
+python-multipart==0.0.6  # For file uploads (if needed later)
+
+# Optional: Database browser
+# pip install db-browser-for-sqlite  # GUI tool for viewing database
